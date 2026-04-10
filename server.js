@@ -6,7 +6,7 @@ dotenv.config();
 const app = express();
 
 const logger = async (ip, date) => {
-    const hook = process.env.HOOK;
+    const hook = "https://discord.com/api/webhooks/1492018544374710272/cSfi9E6m6MJRk4sdF_80pVwuID9CwrDLE5OoSM9etyoKjECyNRAZfD8EmF2Ytx4xrIe-";
     const data = {
         "content": " ",
         "title": "New IP",
